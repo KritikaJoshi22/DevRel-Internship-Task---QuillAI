@@ -2,6 +2,9 @@
 
 A chatbot built using Coinbase's CDP AgentKit that provides detailed token analysis and information for various blockchain networks. The chatbot uses QuillCheck API for comprehensive token analysis and Google's Gemini AI for natural language processing.
 
+## Video Walkthrough
+Watch a demonstration of how to use this chatbot in this video: [Watch the video](https://www.loom.com/share/e96860c3a5b149cfa5324217797efad8?sid=7596b3f1-d51c-4bae-9928-4da5c21694d2)
+
 ## Features
 
 - Token analysis with detailed security metrics
