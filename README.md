@@ -1,4 +1,4 @@
-# CDP AgentKit Token Analysis Chatbot
+# QuillAIbot
 
 A chatbot built using Coinbase's CDP AgentKit that provides detailed token analysis and information for various blockchain networks. The chatbot uses QuillCheck API for comprehensive token analysis and Google's Gemini AI for natural language processing.
 
