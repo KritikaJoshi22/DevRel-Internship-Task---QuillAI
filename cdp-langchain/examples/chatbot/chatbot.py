@@ -162,7 +162,9 @@ def get_token_info(chain_id: str, token_address: str) -> Dict[Any, Any]:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
         data = response.json()
-        return format_token_info(data)
+        formatted_output = format_token_info(data)
+        # Return the formatted output directly without any additional summary
+        return formatted_output
     except requests.exceptions.RequestException as e:
         raise Exception(f"Failed to fetch token information: {str(e)}")
 
@@ -243,5 +245,4 @@ def run_chat():
             sys.exit(0)
 
 if __name__ == "__main__":
-    print("Starting chatbot...")
     run_chat()
