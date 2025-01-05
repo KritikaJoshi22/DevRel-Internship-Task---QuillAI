@@ -22,10 +22,10 @@ Before running the chatbot, you will need to obtain API keys from the following 
 
 ## Installation
 
-1. Clone the CDP AgentKit repository:
+1. Clone this repository:
 
 ```bash
-git clone https://github.com/coinbase/cdp-agentkit.git
+https://github.com/KritikaJoshi22/QuillAIbot.git
 ```
 
 2. Navigate to the chatbot directory:
