@@ -191,7 +191,7 @@ def initialize_agent():
 
     tokenInfoTool = CdpTool(
         name="get_token_info",
-        description=TOKEN_INFO_PROMPT,
+        description=TOKEN_INFO_PROMPT + "\nWhen using this tool, return only the formatted output without any additional explanation or summary.",
         cdp_agentkit_wrapper=agentkit,
         args_schema=TokenInfoInput,
         func=get_token_info,
@@ -212,7 +212,8 @@ def initialize_agent():
             "from the faucet if you are on network ID base-sepolia. If not, you can provide your wallet details and "
             "request funds from the user. If someone asks you to do something you can't do with your currently "
             "available tools, you must say so, and encourage them to implement it themselves using the CDP SDK + "
-            "Agentkit, recommend they go to docs.cdp.coinbase.com for more information. Be concise and helpful with "
+            "Agentkit, recommend they go to docs.cdp.coinbase.com for more information. When using the get_token_info tool, "
+            "return only the formatted output without adding any additional explanations or summaries. Be concise and helpful with "
             "your responses. Refrain from restating your tools' descriptions unless it is explicitly requested."
         ),
     ), config
