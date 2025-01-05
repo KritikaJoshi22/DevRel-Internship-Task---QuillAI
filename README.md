@@ -1,53 +1,106 @@
-# CDP Agentkit
+# CDP AgentKit Token Analysis Chatbot
 
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/cdp-agentkit-core?style=flat-square)](https://pypistats.org/packages/cdp-agentkit-core)
-[![GitHub star chart](https://img.shields.io/github/stars/coinbase/cdp-agentkit?style=flat-square)](https://star-history.com/#coinbase/cdp-agentkit)
-[![Open Issues](https://img.shields.io/github/issues-raw/coinbase/cdp-agentkit?style=flat-square)](https://github.com/coinbase/cdp-agentkit/issues)
+A chatbot built using Coinbase's CDP AgentKit that provides detailed token analysis and information for various blockchain networks. The chatbot uses QuillCheck API for comprehensive token analysis and Google's Gemini AI for natural language processing.
 
-The **Coinbase Developer Platform (CDP) Agentkit for Python** simplifies bringing your AI Agents onchain. Every AI Agent deserves a crypto wallet!
+## Features
 
+- Token analysis with detailed security metrics
+- Support for multiple blockchain networks (Ethereum, BSC, Polygon, Base)
+- Security score assessment
+- Holder statistics
+- Liquidity information
+- Honeypot detection
+- External links to popular platforms
 
-## Key Features
-- **Framework-agnostic**: Common AI Agent primitives that can be used with any AI framework.
-- **LangChain integration**: Seamless integration with [LangChain](https://python.langchain.com/docs/introduction/) for easy agentic workflows. More frameworks coming soon!
-- **Twitter integration**: Seamless integration of Langchain with [Twitter](https://developer.twitter.com/en/docs/twitter-api) for easy agentic workflows.
-- **Support for various on-chain actions**:
+## Prerequisites
 
-  - Faucet for testnet funds
-  - Getting wallet details and balances
-  - Transferring and trading tokens
-  - Registering [Basenames](https://www.base.org/names)
-  - Deploying [ERC-20](https://www.coinbase.com/learn/crypto-glossary/what-is-erc-20) tokens
-  - Deploying [ERC-721](https://www.coinbase.com/learn/crypto-glossary/what-is-erc-721) tokens and minting NFTs
-  - Buying and selling [Zora Wow](https://wow.xyz/) ERC-20 coins
-  - Deploying tokens on [Zora's Wow Launcher](https://wow.xyz/mechanics) (Bonding Curve)
+Before running the chatbot, you will need to obtain API keys from the following services:
 
-  Or [add your own](./CONTRIBUTING.md#adding-an-action-to-agentkit-core)!
+1. CDP API Key from [CDP Portal](https://portal.cdp.coinbase.com/)
+2. QuillCheck API Key from [QuillCheck](https://check.quillai.network/apikey)
+3. Gemini API Key from [Google AI Studio](https://aistudio.google.com/app/apikey)
 
-## Examples
-Check out [cdp-langchain/examples](./cdp-langchain/examples) for inspiration and help getting started!
-- [Chatbot](./cdp-langchain/examples/chatbot/README.md): Simple example of a Chatbot that can perform complex onchain interactions, using OpenAI.
+## Installation
 
-## Repository Structure
-CDP Agentkit is organized as a [monorepo](https://en.wikipedia.org/wiki/Monorepo) that contains multiple packages.
+1. Clone the CDP AgentKit repository:
 
-### cdp-agentkit-core
-Core primitives and framework-agnostic tools that are meant to be composable and used via CDP Agentkit framework extensions (ie, `cdp-langchain`).
-See [CDP Agentkit Core](./cdp-agentkit-core/README.md) to get started!
+```bash
+git clone https://github.com/coinbase/cdp-agentkit.git
+```
 
-### cdp-langchain
-Langchain Toolkit extension of CDP Agentkit. Enables agentic workflows to interact with onchain actions.
-See [CDP Langchain](./cdp-langchain/README.md) to get started!
+2. Navigate to the chatbot directory:
 
-### twitter-langchain
-Langchain Toolkit extension for Twitter. Enables agentic workflows to interact with Twitter, such as to post a tweet.
-See [Twitter Langchain](./twitter-langchain/README.md) to get started!
+```bash
+cd cdp-langchain/examples/chatbot
+```
 
-## Contributing
-CDP Agentkit welcomes community contributions.
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
+3. Install the required package:
 
-## Documentation
-- [CDP Agentkit Documentation](https://docs.cdp.coinbase.com/agentkit/docs/welcome)
-- [API Reference: CDP Agentkit Core](https://coinbase.github.io/cdp-agentkit/cdp-agentkit-core/index.html)
-- [API Reference: CDP Agentkit LangChain Extension](https://coinbase.github.io/cdp-agentkit/cdp-langchain/index.html)
+```bash
+pip install cdp-langchain
+```
+
+## Configuration
+
+1. Create a `.env` file in the project directory with the following structure:
+
+```env
+CDP_API_KEY_NAME="your_cdp_api_key_name"
+CDP_API_KEY_PRIVATE_KEY="your_cdp_private_key"
+GEMINI_API_KEY="your_gemini_api_key"
+QUILLAI_API_KEY="your_quillcheck_api_key"
+NETWORK_ID="base-sepolia"  # Optional, defaults to base-sepolia
+```
+
+2. Replace the placeholder values with your actual API keys and credentials
+
+## Usage
+
+1. Start the chatbot:
+
+```bash
+python chatbot.py
+```
+
+2. Query token information using the following format:
+
+```
+What is the token information for the token at address TOKEN_ADDRESS on the CHAIN_NAME chain?
+```
+
+Example:
+
+```
+What is the token information for the token at address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 on the Ethereum chain?
+```
+
+The chatbot will respond with detailed token information including:
+
+- Basic token information
+- Security scores
+- Holder statistics
+- Liquidity information
+- Security checks
+- External links
+- Honeypot analysis
+
+## Supported Networks
+
+- Ethereum (chain ID: 1)
+- BSC (chain ID: 56)
+- Polygon (chain ID: 137)
+- Base (chain ID: 8453)
+
+## Note
+
+Make sure to keep your API keys secure and never commit them to version control. The `.env` file should be added to your `.gitignore` file.
+
+## Resources
+
+- [CDP AgentKit Documentation](https://github.com/coinbase/cdp-agentkit)
+- [QuillCheck Documentation](https://check.quillai.network)
+- [Google AI Studio](https://aistudio.google.com)
+
+## License
+
+This project is licensed under the terms specified in the CDP AgentKit repository.
